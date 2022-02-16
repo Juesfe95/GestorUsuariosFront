@@ -1,0 +1,28 @@
+<h2>Lista de usuarios</h2>
+<table class="table table-striped">
+  <thead class="table-dark">
+    <tr>
+      <th>Nombre</th>
+      <th>Rol</th>
+      <th>activo</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let usuario of usuarios">
+      <td>{{usuario.nombre}}</td>
+      <td>{{usuario.cargoId.nombre}}</td>
+      <td>
+        <div class="form-check form-switch">
+          <input *ngIf="usuario.activo" id="checkActivo" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked disabled>
+          <input *ngIf="!usuario.activo" id="checkActivo" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" disabled >
+        </div>
+      </td>
+      <td>
+        <button class="btn btn-warning" (click)="actualizarUsuario(usuario.id)">Actualizar</button>
+        <button class="btn btn-info" (click)="verDetalles(usuario.id)" style="margin-left: 1rem;">Ver Detalles</button>
+        <button class="btn btn-danger" (click)="eliminarUsuario(usuario.id)" style="margin-left: 1rem;">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

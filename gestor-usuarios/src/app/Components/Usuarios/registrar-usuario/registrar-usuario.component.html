@@ -1,0 +1,31 @@
+<div class="col-md-6 offset-md-3">
+  <h3> Registro de usuario</h3>
+  <form (ngSubmit)="crearUsuario()">
+    <div class="form-group">
+      <label for="usuario-nombre"> Nombre : </label>
+      <input type="text" id="usuario-nombre" name="nombre" class="form-control"
+        [(ngModel)]="usuario.nombre" required placeholder="Digite su nombre" #nombre = "ngModel">
+    </div>
+    <div class="form-group">
+      <label for="user-rol"> Seleccione un rol : </label>
+      <select class="form-control" id="user-rol" name="rol" [(ngModel)]="usuario.cargoId.id" required>
+        <option value="0" selected disabled>Seleccione</option>
+        <option *ngFor="let rol of roles" [value]="rol.id">
+          {{rol.nombre}}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="user-estado"> Seleccione un estado de actividad: </label>
+      <select class="form-control" id="user-estado" name="estado" [(ngModel)]="usuario.activo" required>
+        <option value ="True">Activo</option>
+        <option value ="False">Inactivo</option>
+      </select>
+    </div>
+    <br>
+    <div class="form-group">
+      <button class="btn btn-success"> Registrar</button>
+    </div>
+  </form>
+</div>
