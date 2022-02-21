@@ -30,12 +30,12 @@ export class UsuarioService {
 
   //metodo para buscar un usuario por ID
   buscarUsuarioPorId(id:number): Observable<UsuarioModel>{
-    return this.httpClient.get<UsuarioModel>(`${this.baseUrl+'/buscar-por-id'}/${id}`);
+    return this.httpClient.get<UsuarioModel>(`${this.baseUrl+'/buscar-por-id?id='+id}`);
   }
 
   //metodo para eliminar empleado
   eliminarEmpleado(id:number): Observable<Object>{
-    return this.httpClient.delete(`${this.baseUrl+'/eliminar'}/${id}`)
+    return this.httpClient.delete(`${this.baseUrl+'/eliminar?id='+id}`)
   }
 
 }
